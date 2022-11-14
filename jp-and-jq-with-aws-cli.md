@@ -5,13 +5,14 @@
 Its a command line tool used to parse, format or transform JSON respones from other commands
 
 https://stedolan.github.io/jq/manual/
+https://cheatography.com/orabig/cheat-sheets/jq/
 
 ## What is JP?
 
 Its similar to JQ but suppose to be easier to use since it uses JMESPath syntax.
 
 https://github.com/jmespath/jp
-https://cheatography.com/orabig/cheat-sheets/jq/
+https://jmespath.org/
 
 ## Sample
 
@@ -47,6 +48,10 @@ Sample JSON from `aws ec2 describe-vpcs`
 ## JQ Examples
 
 ```
+sudo apt-get install jq
+```
+
+```
 aws ec2 describe-vpcs | jq .
 aws ec2 describe-vpcs | jq .Vpcs
 aws ec2 describe-vpcs | jq .Vpcs[]
@@ -76,3 +81,7 @@ aws ec2 describe-vpcs | jq '.Vpcs[0,1] | {cidr: .CidrBlock, id: .VpcId}'
 ```
 
 ### JP Examples
+
+```
+npm i jp -g
+```
