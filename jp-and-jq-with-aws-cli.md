@@ -54,6 +54,7 @@ sudo apt-get install jq
 ```
 aws ec2 describe-vpcs | jq .
 aws ec2 describe-vpcs | jq .Vpcs
+aws ec2 describe-vpcs | jq Vpcs
 aws ec2 describe-vpcs | jq .Vpcs[]
 aws ec2 describe-vpcs | jq .Vpcs.CidrBlock
 aws ec2 describe-vpcs | jq .Vpcs?.CidrBlock?
@@ -97,3 +98,17 @@ cat creds.json
 ```
 npm i jp -g
 ```
+
+```
+aws ec2 describe-vpcs | jp .
+aws ec2 describe-vpcs | jp .Vpcs
+aws ec2 describe-vpcs | jp Vpcs
+aws ec2 describe-vpcs | jp Vpcs[*].CidrBlock
+```
+
+## Conclusion
+
+- JQ and JP are very similar.
+- JQ appears more robust, prints nicer
+- JP syntax does not appear much easier
+- JP
