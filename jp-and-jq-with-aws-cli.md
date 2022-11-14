@@ -75,9 +75,21 @@ aws ec2 describe-vpcs | jq '{cidr: Vpcs[].CidrBlock, id: Vpcs[].CidrBlock }'
 aws ec2 describe-vpcs | jq '{cidr: .Vpcs[0].CidrBlock, id: .Vpcs[0].VpcId }'
 aws ec2 describe-vpcs | jq '{cidr: .Vpcs[0,1].CidrBlock, id: .Vpcs[0,1].VpcId }'
 aws ec2 describe-vpcs | jq '{cidr: .Vpcs[0,1].CidrBlock, id: .Vpcs[0,1].VpcId }'
+jq {hello: 'world'}
 aws ec2 describe-vpcs | jq '.Vpcs[0,1] | {CidrBlock,VpcId}'
 aws ec2 describe-vpcs | jq '.Vpcs[0,1] | {cidr: CidrBlock, id: VpcId}'
 aws ec2 describe-vpcs | jq '.Vpcs[0,1] | {cidr: .CidrBlock, id: .VpcId}'
+export USERNAME='andrewbrown'
+export PASSWORD='testing123'
+jq --null-input \
+  --arg user "$USERNAME" \
+  --arg password "$PASSWORD" \
+  '{"user": $user, "password": $password}'
+jq --null-input \
+  --arg user "$USERNAME" \
+  --arg password "$PASSWORD" \
+  '{"user": $user, "password": $password}' > creds.json
+cat creds.json
 ```
 
 ### JP Examples
