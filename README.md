@@ -28,6 +28,7 @@ These AWS CLI Hands on Labs for Build on Live AWS re:Invent 2022
 - [AWS CLI Autoprompt](aws-cli-autoprompt.md)
 - [AWS CLI Filter and Query](aws-cli-filter-and-query.md)
 - [JP and JQ with AWS CLI](jp-and-jq-with-aws-cli.md)
+- [Chaining AWS CLI with X-Args](chaining-xargs.md)
 - [AWS CLI Aliases](aws-cli-aliases.md)
 - [AWS CLI Wizards](aws-cli-wizards.md)
 - [AWS CLI Skeleton Templates](aws-cli-skeleton-templates.md)

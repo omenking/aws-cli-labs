@@ -111,4 +111,5 @@ aws ec2 describe-vpcs | jp Vpcs[*].CidrBlock
 - JQ and JP are very similar.
 - JQ appears more robust, prints nicer
 - JP syntax does not appear much easier
-- JP
+- JMESPath is the same syntax that AWS client side filtering (JMESPath) so we are stacking our knowledge
+
