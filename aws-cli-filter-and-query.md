@@ -25,6 +25,8 @@ AWS CLI allows you to filter query-side.
 
 > This parameter has capabilities the server-side filtering might not have.
 
+https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html
+
 ```
 aws ec2 describe-vpcs --query "Vpcs[0].CidrBlock"
 ```
