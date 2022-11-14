@@ -11,7 +11,68 @@ https://stedolan.github.io/jq/manual/
 Its similar to JQ but suppose to be easier to use since it uses JMESPath syntax.
 
 https://github.com/jmespath/jp
+https://cheatography.com/orabig/cheat-sheets/jq/
+
+## Sample
+
+Sample JSON from `aws ec2 describe-vpcs`
+
+```json
+{
+    "Vpcs": [
+        {
+            "CidrBlock": "192.168.100.0/22",
+            "DhcpOptionsId": "dopt-ddeb2aa6",
+            "State": "available",
+            "VpcId": "vpc-062b7eef861746a7d",
+            "OwnerId": "655604346524",
+            "InstanceTenancy": "default",
+            "CidrBlockAssociationSet": [
+                {
+                    "AssociationId": "vpc-cidr-assoc-033eddfe5c93b5765",
+                    "CidrBlock": "192.168.100.0/22",
+                    "CidrBlockState": {
+                        "State": "associated"
+                    }
+                }
+            ],
+            "IsDefault": false,
+            "Tags": [
+                {
+                    "Key": "Name",
+                    "Value": "exampro-accounts"
+                }
+```
 
 ## JQ Examples
+
+```
+aws ec2 describe-vpcs | jq .
+aws ec2 describe-vpcs | jq .Vpcs
+aws ec2 describe-vpcs | jq .Vpcs[]
+aws ec2 describe-vpcs | jq .Vpcs.CidrBlock
+aws ec2 describe-vpcs | jq .Vpcs?.CidrBlock?
+aws ec2 describe-vpcs | jq .Vpcs[].CidrBlock
+aws ec2 describe-vpcs | jq .Vpcs[1].CidrBlock
+aws ec2 describe-vpcs | jq .Vpcs[1:2].CidrBlock
+aws ec2 describe-vpcs | jq .Vpcs[1:2]
+aws ec2 describe-vpcs | jq .Vpcs[1:1]
+aws ec2 describe-vpcs | jq .Vpcs[1:2][].CidrBlock
+aws ec2 describe-vpcs | jq .Vpcs[1,2]
+aws ec2 describe-vpcs | jq .Vpcs[1,2].CidrBlock
+aws ec2 describe-vpcs | jq .Vpcs[1].CidrBlock,.Vpcs[1].VpcId
+aws ec2 describe-vpcs | jq .Vpcs[1,2].CidrBlock,.Vpcs[1,2].VpcId
+aws ec2 describe-vpcs | jq .Vpcs[1].CidrBlock|.Vpcs[1].VpcId
+aws ec2 describe-vpcs | jq ".Vpcs[] | .CidrBlock"
+aws ec2 describe-vpcs | jq '.Vpcs[] | .CidrBlock'
+aws ec2 describe-vpcs | jq '.Vpcs[] | .CidrBlock,.VpcId'
+aws ec2 describe-vpcs | jq '{cidr: Vpcs[].CidrBlock, id: Vpcs[].CidrBlock }'
+aws ec2 describe-vpcs | jq '{cidr: .Vpcs[0].CidrBlock, id: .Vpcs[0].VpcId }'
+aws ec2 describe-vpcs | jq '{cidr: .Vpcs[0,1].CidrBlock, id: .Vpcs[0,1].VpcId }'
+aws ec2 describe-vpcs | jq '{cidr: .Vpcs[0,1].CidrBlock, id: .Vpcs[0,1].VpcId }'
+aws ec2 describe-vpcs | jq '.Vpcs[0,1] | {CidrBlock,VpcId}'
+aws ec2 describe-vpcs | jq '.Vpcs[0,1] | {cidr: CidrBlock, id: VpcId}'
+aws ec2 describe-vpcs | jq '.Vpcs[0,1] | {cidr: .CidrBlock, id: .VpcId}'
+```
 
 ### JP Examples
