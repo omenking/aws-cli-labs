@@ -3,8 +3,8 @@
 Another way we can configure AWS CLI fields is by provide either a json or yaml file.
 
 ```sh
-aws ec2 run-instances --cli-input-json ./data.json
-aws ec2 run-instances --cli-input-yaml ./data.yaml
+aws ec2 run-instances --cli-input-json file://data.json
+aws ec2 run-instances --cli-input-yaml file://data.yaml
 ```
 
 # Dump YAMl
