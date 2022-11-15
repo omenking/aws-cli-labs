@@ -1,5 +1,3 @@
-
-
 Another way we can configure AWS CLI fields is by provide either a json or yaml file.
 
 ```sh
@@ -14,3 +12,7 @@ To get the structure we can
 mkdir -p aws/cli/data
 aws ec2 run-instances --generate-cli-skeleton yaml-input > aws/cli/data/new-instance.yaml  
 ```
+
+# How are they are useful
+
+- who takes priority with overrides?
