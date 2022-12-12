@@ -45,6 +45,8 @@ would be the same in JS
 
 ## YQ
 
+yq . myfile.yaml
+
 You can do this:
 ```
 yq . ./examples/yaml/collections.yaml
