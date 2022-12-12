@@ -47,7 +47,7 @@ would be the same in JS
 
 You can do this:
 ```
-yq ./sudo ./examples/yaml/collections.yaml
+yq . ./examples/yaml/collections.yaml
 ```
 
 But you should probably do this when piping
