@@ -42,3 +42,21 @@ would be the same in JS
   }
 }
 ```
+
+## YQ
+
+You can do this:
+```
+yq ./sudo ./examples/yaml/collections.yaml
+```
+
+But you should probably do this when piping
+```
+sudo cat ./examples/yaml/collections.yaml | yq .
+```
+
+
+If we are converting to json
+```
+yq -o=json '.' ./examples/yaml/collections.yaml
+```
